@@ -21,11 +21,11 @@
     "makeymakey"
   ],
   "dependencies" : {
-    "nodeserial"   :  "*"
+    "serialport"   :  "*"
   },
   "analyze": false,
   "devDependencies": {
-    "nodeserial"    :  "*"
+    "serialport"    :  "*"
   },
   "bundledDependencies": [],  
   "license": "MIT",
