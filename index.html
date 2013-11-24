@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>Online Lightswitch</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+    function hexToRgb(hex) {
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      console.log(result);
+      return result ? [
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16)
+      ].join(',') : '0,0,0';
+    }
+    $(function() {
+      $("#on").click(function() {
+        $.ajax('/on');
+      });
+
+      $("#off").click(function() {
+        $.ajax('/off');
+      });
+
+      $("#blink").click(function() {
+        $.ajax('/blink');
+      });
+
+      $("#fade").click(function() {
+        $.ajax('/fade');
+      });
+      $(document).keydown(function(){
+        $.ajax('/on');
+      }).keyup(function(){
+        $.ajax('/off');
+      });
+      $('#color').change(function(){
+        var fn = function(){
+          $.ajax('/color/'+hexToRgb($('#color').val()));
+        }
+        setTimeout(fn, 500);
+      });
+    });
+  </script>
+  <style>
+    button {
+      font-size: 20pt;
+    }
+  </style>
+</head>
+<body>
+  <button id="on">On</button>
+  <button id="off">Off</button>
+  <button id="blink">Blink</button>
+  <button id="fade">Fade</button>
+  <input id="color" type="color">
+</body>
+</html>

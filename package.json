@@ -1,0 +1,35 @@
+{
+  "name": "node-revolving-light",
+  "version": "0.0.1",
+  "author": "Wassim Chegham",
+  "description": "A simple project demoing how to control a set of revolving lights with node.js and arduino.",
+  "contributors": [],
+  "bin": {
+    "node-server": "./node-server.js"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodejitsu/http-server.git"
+  },
+  "keywords": [
+    "node",
+    "revolving",
+    "light",
+    "arduino",
+    "firmata",
+    "makeymakey"
+  ],
+  "dependencies" : {
+    "nodeserial"   :  "*"
+  },
+  "analyze": false,
+  "devDependencies": {
+    "nodeserial"    :  "*"
+  },
+  "bundledDependencies": [],  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}	
