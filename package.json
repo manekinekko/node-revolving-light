@@ -21,7 +21,8 @@
     "makeymakey"
   ],
   "dependencies" : {
-    "serialport"   :  "*"
+    "serialport"   :  "*",
+    "express": "*"
   },
   "analyze": false,
   "devDependencies": {

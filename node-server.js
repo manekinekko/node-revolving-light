@@ -2,7 +2,8 @@ var s = require('serialport');
 var fs = require('fs');
 var express = require('express');
  
-var port   = '/dev/cu.usbmodem1411'
+var port   = '/dev/cu.usbmodem1411';
+var portWindows   = '\\COM4';
 var serial = null;
 var value  = 0x00;
 var intervalToggle = null;
@@ -122,14 +123,15 @@ app.get('/color/:color', function(req, res){
 });
 
 console.log("Starting...");
-fs.stat(port, function(err, stats){
+fs.stat('D:/', function(err, stats){
 
 	if (err){
 	    console.log("Couldn't stat #{port}");
+	    console.log(err, stats);
 	    process.exit();
 	}
   	console.log("Started.");
 
-  	serial = new s.SerialPort(port, {baudrate: 9600});
-	app.listen(8080);
+  	serial = new s.SerialPort(portWindows, {baudrate: 9600});
+	app.listen(8888);
 });
